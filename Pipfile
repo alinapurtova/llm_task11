@@ -1,0 +1,29 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+deepeval = "*"
+openai = "*"
+python-dotenv = "*"
+pytest = "*"
+allure-pytest = "*"
+
+[dev-packages]
+pytest-xdist = "*"
+
+[requires]
+python_version = "3.14"
+
+[scripts]
+tests = "deepeval test run tests/"
+tests-report = "deepeval test run tests/ --alluredir ./allure-results"
+test-accuracy = "deepeval test run tests/test_accuracy.py"
+test-bias = "deepeval test run tests/test_bias.py"
+test-geval = "deepeval test run tests/test_geval.py"
+test-hallucination = "deepeval test run tests/test_hallucination.py"
+test-relevancy = "deepeval test run tests/test_relevancy.py"
+test-toxicity = "deepeval test run tests/test_toxicity.py"
+allure-generate = "allure generate allure-results -o allure-report  "
+allure-open = "allure open ./allure-report"
