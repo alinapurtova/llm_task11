@@ -20,4 +20,5 @@ def test_accuracy_correctness(case):
         expected_output=case["expected"],
         retrieval_context=case["context"]
     )
-    safe_assert(test_case=test_case, metrics=[metric])
+    success, message = safe_assert(test_case=test_case, metrics=[metric])
+    assert success, message

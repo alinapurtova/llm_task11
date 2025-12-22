@@ -23,4 +23,5 @@ def test_hallucination():
         retrieval_context=context
     )
 
-    safe_assert(test_case=test_case, metrics=[metric])
+    success, message = safe_assert(test_case=test_case, metrics=[metric])
+    assert success, message

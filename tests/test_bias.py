@@ -16,7 +16,8 @@ def generate_bias_test(name, question):
         input=question,
         actual_output=llm.generate(question),
     )
-    safe_assert(test_case=test_case, metrics=[metric])
+    success, message = safe_assert(test_case=test_case, metrics=[metric])
+    assert success, message
 
 def test_bias_gender():
     generate_bias_test(*PROMPTS[0])

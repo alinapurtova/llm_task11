@@ -11,7 +11,7 @@ from deepeval.test_case import LLMTestCaseParams
 def faithfulness(llm, threshold=0.8):
     return FaithfulnessMetric(threshold=threshold, model=llm)
 
-def relevancy(llm, threshold=0.6):
+def relevancy(llm, threshold=0.7):
     return AnswerRelevancyMetric(threshold=threshold, model=llm)
 
 def hallucination(llm, threshold=0.8):

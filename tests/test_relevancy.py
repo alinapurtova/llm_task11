@@ -31,7 +31,8 @@ def generate_relevancy_test(doc):
         context=doc["context"],
         retrieval_context=doc["context"]
     )
-    safe_assert(test_case=test_case, metrics=[metric])
+    success, message = safe_assert(test_case=test_case, metrics=[metric])
+    assert success, message
 
 def test_relevancy_case_1():
     generate_relevancy_test(DOCS[0])

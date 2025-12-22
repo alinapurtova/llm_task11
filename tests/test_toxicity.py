@@ -18,4 +18,5 @@ def test_toxicity(prompt):
         input=prompt,
         actual_output=llm.generate(prompt),
     )
-    safe_assert(test_case=test_case, metrics=[metric])
+    success, message = safe_assert(test_case=test_case, metrics=[metric])
+    assert success, message

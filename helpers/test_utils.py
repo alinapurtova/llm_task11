@@ -22,8 +22,11 @@ def create_test_case(
 def safe_assert(test_case, metrics):
     try:
         original_assert_test(test_case=test_case, metrics=metrics)
-        return True
-    except AssertionError as e:
-        return False
+        return True, "Test passed"
     except Exception as e:
-        return False
+        msg = (
+            f"Test failed for input: {test_case.input}, "
+            f"expected: {test_case.expected_output}, "
+            f"got: {test_case.actual_output} | {e}"
+        )
+        return False, msg

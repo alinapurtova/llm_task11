@@ -19,4 +19,5 @@ def test_geval():
         actual_output=llm.generate(question),
     )
 
-    safe_assert(test_case=test_case, metrics=[metric])
+    success, message = safe_assert(test_case=test_case, metrics=[metric])
+    assert success, message

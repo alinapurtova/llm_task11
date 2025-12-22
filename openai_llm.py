@@ -14,7 +14,7 @@ class OpenAILLM(DeepEvalBaseLLM):
         return self.model
 
     def load_model(self):
-        pass
+        raise NotImplementedError("load_model must be implemented")
 
     def generate(self, prompt: str):
         response = self.client.chat.completions.create(
